@@ -1,3 +1,19 @@
+/* -------------------- CSS général -------------------- */
+
+
+a {
+    text-decoration: none;
+}
+
+.icon {
+    max-width: 30px;
+    max-height: 30px;
+
+}
+
+
+/* -------------------- header -------------------- */
+
 .bg-header {
     background-color: #33058D;
 }
@@ -5,4 +21,18 @@
 nav img {
     max-width: 270px;
     max-height: 40px;
+}
+.navbar-toggler {
+    border: 0px;
+}
+.navbar-nav {
+    text-align: center;
+}
+.item-link {
+    color: white;
+    font-size: 25px;
+}
+.item-link:hover {
+    color: rgb(230, 230, 230);
+    text-decoration: none;
 }
