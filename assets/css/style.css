@@ -27,6 +27,7 @@ nav img {
 }
 .navbar-nav {
     text-align: center;
+    padding-top: 40px;
 }
 .item-link {
     color: white;
@@ -35,4 +36,8 @@ nav img {
 .item-link:hover {
     color: rgb(230, 230, 230);
     text-decoration: none;
+}
+.nav-item {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
