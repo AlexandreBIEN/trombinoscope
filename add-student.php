@@ -4,7 +4,7 @@ require_once __DIR__ . '/inc/header.php';
     
 ?>
 
-<form method="$_GET" action="./controllers/add-student-controller.php">
+<form method="POST" action="./controllers/add-student-controller.php" enctype="multipart/form-data">
     <div class="form-group">
         <label for="last_name">Nom :</label>
         <input type="text" class="form-control" id="last_name" name="lastname" placeholder="ex : Doe">

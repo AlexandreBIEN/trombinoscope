@@ -1,22 +1,27 @@
 <?php
 require_once __DIR__ . '/../function.php';
 
-if(isset($_GET)) {
+if(isset($_POST)) {
     
     if(isset($_FILES['image_student']) && $_FILES['image_student']['error'] == 0){
-        rename("/img/" . $_FILES['image_student']['name'], "/img/" . uniqid());
+        // On créer un nouveau nom pour l'image en utilisant la fonction uniqid
+        $uniqId = uniqid();
         $tmp = $_FILES['image_student']['tmp_name'];
         $filename = $_FILES['image_student']['name'];
         // droit min sur le dossier img 733 (rwx-wx-wx)
-        $dest = '/img/';
+        $dest = '../assets/img/';
         // à faire lorsque que "tous" les risquesont été évalués
-        if(move_uploaded_file($tmp, $dest . $filename))
-            echo 'téléchargement réussi';   
+        if(move_uploaded_file($tmp, $dest . $filename)){
+            echo 'téléchargement réussi';
+            // On renome l'image
+            rename("../assets/img/" . $_FILES['image_student']['name'], "../assets/img/" . $uniqId . ".png"); 
+        }
         else {
-            echo 'marche pas :c';
+            echo 'échec du téléchargement';
         }
     }
     
-    add_student($_GET['firstname'], $_GET['lastname'], $_GET['class'], $_GET['image_student']);
-    // header('Location: ../add-student.php');
+    // On enregistre les infos dans la base de donnée
+    add_student($_POST['firstname'], $_POST['lastname'], $_POST['class'], $uniqId);
+    header('Location: ../accueil.php');
 }
