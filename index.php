@@ -4,9 +4,11 @@ require_once __DIR__ . '/inc/header.php';
     
 ?>
 
-<div class="container w-25">
-    <h1>Bienvenue !</h1>
-    <img src="./assets/svg/lamanusocialmedia_rvb.png" alt="logo la manu">
+<div class="container container-width">
+    <div class="text-center">
+        <h2>Bienvenue !</h2>
+        <img src="./assets/svg/lamanusocialmedia_rvb.png" alt="logo la manu" class="logo-index">
+    </div>
     <form method="POST" action="./accueil.php">
         <div class="form-group">
             <label for="id">Identidiant :</label>
@@ -16,7 +18,9 @@ require_once __DIR__ . '/inc/header.php';
             <label for="password">Mot de passe :</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Votre mot de passe">
         </div>
-        <button type="submit" class="btn btn-primary">Envoyer</button>
+        <div class="text-center">
+            <button type="submit" class="btn btn-secondary">Connexion</button>
+        </div>
     </form>    
 </div>
 
