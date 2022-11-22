@@ -2,6 +2,9 @@
 $title = 'Ajout d\'un étudiant';
 require_once __DIR__ . '/inc/header.php';
 require_once __DIR__ . '/function.php';
+
+// Récupération des classes
+$classes = get_classes();
     
 ?>
 
@@ -15,9 +18,9 @@ require_once __DIR__ . '/function.php';
         <input type="text" class="form-control" id="first_name" name="firstname" placeholder="ex : John">
     </div>
     <select class="form-control" name="class">
-        <option value="1">Bachelor 1</option>
-        <option value="2">Bachelor 2</option>
-        <option value="3">Bachelor 3</option>
+    <?php foreach ($classes as $class) : ?>
+        <option value="<?= $class['class_id']; ?>"><?= $class['class_name']; ?></option>
+    <?php endforeach; ?>
     </select>
 
     <div class="form-group">

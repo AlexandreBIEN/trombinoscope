@@ -3,6 +3,10 @@ $title = 'Accueil';
 require_once __DIR__ . '/inc/header.php';
 require_once __DIR__ . '/function.php';    
 
+// Récupération des classes
+$classes = get_classes();
+
+// Récupération des étudiants, filtré ou non
 if(isset($_GET['class_id'])){
     $students = get_students_by_class($_GET['class_id']);
 }
@@ -15,11 +19,14 @@ else {
 <form method="GET" action="#">
     <label for="class_id"></label>
     <select class="form-control" name="class_id">
-    
-        <option value="1">Bachelor 1</option>
-
+    <?php foreach ($classes as $class) : ?>
+        <option value="<?= $class['class_id']; ?>"><?= $class['class_name']; ?></option>
+    <?php endforeach; ?>
     </select>
     <button type="submit" class="btn btn-primary">Chercher</button>
+</form>
+<form action="#">
+    <button type="submit" class="btn btn-primary">Toutes les classes</button>
 </form>
 
 <?php foreach ($students as $student) : ?>

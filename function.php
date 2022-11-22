@@ -90,3 +90,22 @@ function get_students_by_class($class_id) {
     $students = $studentsbyclassStmt->fetchAll(PDO::FETCH_ASSOC);
     return $students;
 }
+
+/***************************************************************************
+Récupère les classes inscrit dans la base de donnée
+************************************************************************** */
+function get_classes() {
+    $db = db_connect();
+
+    $sql = <<<EOD
+    SELECT 
+        `class_id`,
+        `class_name`
+    FROM 
+        `classes`
+    EOD;
+
+    $classesStmt = $db->query($sql);
+    $classes = $classesStmt->fetchAll(PDO::FETCH_ASSOC);
+    return $classes;
+}
