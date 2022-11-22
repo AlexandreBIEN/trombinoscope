@@ -11,14 +11,15 @@ $classes = get_classes();
     <form method="POST" action="./controllers/add-student-controller.php" enctype="multipart/form-data">
         <div class="form-group">
             <label for="last_name">Nom :</label>
-            <input type="text" class="form-control" id="last_name" name="lastname" placeholder="ex : Doe">
+            <input required type="text" class="form-control" id="last_name" name="lastname" placeholder="ex : Doe">
         </div>
         <div class="form-group">
             <label for="first_name">Prénom :</label>
-            <input type="text" class="form-control" id="first_name" name="firstname" placeholder="ex : John">
+            <input required type="text" class="form-control" id="first_name" name="firstname" placeholder="ex : John">
         </div>
         <label for="class">Classe :</label>
-        <select class="form-control" name="class">
+        <select required class="form-control" name="class">
+            <!-- Liste des classes -->
         <?php foreach ($classes as $class) : ?>
             <option value="<?= $class['class_id']; ?>"><?= $class['class_name']; ?></option>
         <?php endforeach; ?>
@@ -26,7 +27,7 @@ $classes = get_classes();
 
         <div class="form-group">
             <label for="image_student">Photo de l'étudiant :</label>
-            <input type="file" class="form-control-file" id="image_student" name="image_student">
+            <input required type="file" class="form-control-file" id="image_student" name="image_student">
         </div>
         <div class="text-center py-2">
             <button type="submit" class="btn btn-secondary">Envoyer</button>

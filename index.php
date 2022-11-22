@@ -10,7 +10,7 @@ require_once __DIR__ . '/inc/header.php';
         <img src="./assets/svg/lamanusocialmedia_rvb.png" alt="logo la manu" class="logo-index">
     </div>
     <form method="POST" action="./accueil.php">
-        <div class="form-group">
+        <div class="form-group mt-3">
             <label for="id">Identidiant :</label>
             <input type="text" class="form-control" id="id" name="id" placeholder="ex : Alexandre">
         </div>
