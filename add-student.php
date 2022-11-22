@@ -1,6 +1,7 @@
 <?php
 $title = 'Ajout d\'un étudiant';
 require_once __DIR__ . '/inc/header.php';
+require_once __DIR__ . '/function.php';
     
 ?>
 
@@ -26,6 +27,9 @@ require_once __DIR__ . '/inc/header.php';
     <button type="submit" class="btn btn-primary">Envoyer</button>
 </form>
 
+<form action="./admin.php">
+    <button type="submit" class="btn btn-primary">Création de compte / Ajout d'une classe</button>
+</form>
 
 <?php
 require_once __DIR__ . '/inc/footer.php';

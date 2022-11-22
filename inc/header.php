@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="item-link" href="./index.php">Accueil  <img class="icon-menu" src="./assets/svg/home.svg" alt="icon accueil"></a>
+                <a class="item-link" href="./accueil.php">Accueil  <img class="icon-menu" src="./assets/svg/home.svg" alt="icon accueil"></a>
               </li>
               <li class="nav-item">
                 <a class="item-link" href="#">Thème  <img class="icon-menu" src="./assets/svg/theme.svg" alt="icon accueil"></a>
@@ -28,7 +28,7 @@
                 <a class="item-link" href="./add-student.php">Ajouter un étudiant  <img class="icon-menu" src="./assets/svg/plus.svg" alt="icon accueil"></a>
               </li>
               <li class="nav-item">
-                <a class="item-link" href="#">Se déconnecter  <img class="icon-menu" src="./assets/svg/disconnect.svg" alt="icon accueil"></a>
+                <a class="item-link" href="./index.php">Se déconnecter  <img class="icon-menu" src="./assets/svg/disconnect.svg" alt="icon accueil"></a>
               </li>
             </ul>
         </div>

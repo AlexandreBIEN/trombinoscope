@@ -22,3 +22,71 @@ function add_student($user_first_name, $user_last_name, $user_class_id, $image_s
 
     return true;
 }
+
+/***************************************************************************
+Enregistrement d'une classe : requête paramétrée
+utilisation de la méthode prépare avec des paramètres nommés.
+************************************************************************** */
+function add_class($class_name){
+    $db = db_connect();
+
+    $sql = <<<EOD
+    INSERT INTO `classes` (`class_name`) VALUES ( :class_name)
+    EOD;
+    $classStmt = $db->prepare($sql);
+    $classStmt->bindValue(':class_name', $class_name);
+
+    $classStmt->execute();
+
+    return true;
+}
+
+/***************************************************************************
+Récupère les étudiants inscrit dans la base de donnée
+************************************************************************** */
+function get_students() {
+    $db = db_connect();
+
+    $sql = <<<EOD
+    SELECT 
+        `student_id`,
+        `last_name`, 
+        `first_name`,
+        `class_id`,
+        `img_name`
+    FROM 
+        `students`
+    EOD;
+
+    $studentsStmt = $db->query($sql);
+    $students = $studentsStmt->fetchAll(PDO::FETCH_ASSOC);
+    return $students;
+}
+
+/***************************************************************************
+Récupère les étudiants inscrit dans la base de donnée dans une certaine classe
+************************************************************************** */
+function get_students_by_class($class_id) {
+    $db = db_connect();
+
+    $sql = <<<EOD
+    SELECT 
+        `student_id`,
+        `last_name`, 
+        `first_name`,
+        `class_id`,
+        `img_name`
+    FROM 
+        `students`
+    WHERE
+        `class_id` = :class_id
+    EOD;
+
+    $studentsbyclassStmt = $db->prepare($sql);
+    $studentsbyclassStmt->bindValue(':class_id', $class_id);
+
+    $studentsbyclassStmt->execute();
+
+    $students = $studentsbyclassStmt->fetchAll(PDO::FETCH_ASSOC);
+    return $students;
+}
