@@ -16,25 +16,31 @@ else {
 
 ?>
 
-<form method="GET" action="#">
-    <label for="class_id"></label>
-    <select class="form-control" name="class_id">
-    <?php foreach ($classes as $class) : ?>
-        <option value="<?= $class['class_id']; ?>"><?= $class['class_name']; ?></option>
+<div class="container">
+    <!-- Formulaire de filtre par classe -->
+    <form method="GET" action="#">
+        <label for="class_id">Par classe :</label>
+        <select class="form-control" name="class_id">
+        <?php foreach ($classes as $class) : ?>
+            <option value="<?= $class['class_id']; ?>"><?= $class['class_name']; ?></option>
+        <?php endforeach; ?>
+        </select>
+        <button type="submit" class="btn btn-primary">Chercher</button>
+    </form>
+    <!-- retirer le filtre -->
+    <form action="#">
+        <button type="submit" class="btn btn-primary">Toutes les classes</button>
+    </form>
+
+    <!-- Liste des étudiants -->
+    <?php foreach ($students as $student) : ?>
+
+        <img src="./assets/img/<?= $student['img_name']?>" alt="">
+        <p><?= $student['first_name'] ?></p>
+
     <?php endforeach; ?>
-    </select>
-    <button type="submit" class="btn btn-primary">Chercher</button>
-</form>
-<form action="#">
-    <button type="submit" class="btn btn-primary">Toutes les classes</button>
-</form>
+</div>
 
-<?php foreach ($students as $student) : ?>
-
-    <img src="./assets/img/<?= $student['img_name']?>" alt="">
-    <p><?= $student['first_name'] ?></p>
-
-<?php endforeach; ?>
 
 <?php
 require_once __DIR__ . '/inc/footer.php';
