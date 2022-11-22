@@ -16,30 +16,43 @@ else {
 
 ?>
 
-<div class="container">
+<main class="container">
     <!-- Formulaire de filtre par classe -->
-    <form method="GET" action="#">
-        <label for="class_id">Par classe :</label>
-        <select class="form-control" name="class_id">
-        <?php foreach ($classes as $class) : ?>
-            <option value="<?= $class['class_id']; ?>"><?= $class['class_name']; ?></option>
+    <div class=" container container-width">
+        <form method="GET" action="#">
+            <label for="class_id">Par classe :</label>
+            <select class="form-control" name="class_id">
+            <?php foreach ($classes as $class) : ?>
+                <option value="<?= $class['class_id']; ?>"><?= $class['class_name']; ?></option>
+            <?php endforeach; ?>
+            </select>
+            <div class="text-center py-2">
+                <button type="submit" class="btn btn-secondary">Chercher</button>
+            </div>
+        </form>
+        <!-- retirer le filtre -->
+        <form action="/accueil.php" class="text-center ">
+            <button type="submit" class="btn btn-secondary">Toutes les classes</button>
+        </form>    
+    </div>
+    
+    <div class="container d-flex">
+        <div class="row">
+        <!-- Liste des étudiants -->
+        <?php foreach ($students as $student) : ?>
+            <div class="col">
+                <div class="card text-center">
+                    <img src="./assets/img/<?= $student['img_name']?>.png" alt="" class="img-student">
+                    <p><?= $student['first_name'] ?></p>
+                    <p><?= $student['last_name'] ?></p>
+                </div>
+            </div>
+            
         <?php endforeach; ?>
-        </select>
-        <button type="submit" class="btn btn-primary">Chercher</button>
-    </form>
-    <!-- retirer le filtre -->
-    <form action="#">
-        <button type="submit" class="btn btn-primary">Toutes les classes</button>
-    </form>
-
-    <!-- Liste des étudiants -->
-    <?php foreach ($students as $student) : ?>
-
-        <img src="./assets/img/<?= $student['img_name']?>" alt="">
-        <p><?= $student['first_name'] ?></p>
-
-    <?php endforeach; ?>
-</div>
+        </div>
+    </div>
+    
+    </main>
 
 
 <?php

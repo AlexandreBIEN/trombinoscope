@@ -7,7 +7,7 @@ require_once __DIR__ . '/function.php';
 $classes = get_classes();
     
 ?>
-<div class="container container-width">
+<main class="container container-width">
     <form method="POST" action="./controllers/add-student-controller.php" enctype="multipart/form-data">
         <div class="form-group">
             <label for="last_name">Nom :</label>
@@ -28,7 +28,7 @@ $classes = get_classes();
             <label for="image_student">Photo de l'étudiant :</label>
             <input type="file" class="form-control-file" id="image_student" name="image_student">
         </div>
-        <div class="text-center">
+        <div class="text-center py-2">
             <button type="submit" class="btn btn-secondary">Envoyer</button>
         </div>
     </form>
@@ -36,7 +36,7 @@ $classes = get_classes();
     <form action="./admin.php" class="text-center">
         <button type="submit" class="btn btn-secondary">Création de compte / classe</button>
     </form>    
-</div>
+</main>
 
 
 <?php

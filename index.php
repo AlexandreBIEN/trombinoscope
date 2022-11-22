@@ -4,7 +4,7 @@ require_once __DIR__ . '/inc/header.php';
     
 ?>
 
-<div class="container container-width">
+<main class="container container-width">
     <div class="text-center">
         <h2>Bienvenue !</h2>
         <img src="./assets/svg/lamanusocialmedia_rvb.png" alt="logo la manu" class="logo-index">
@@ -22,7 +22,7 @@ require_once __DIR__ . '/inc/header.php';
             <button type="submit" class="btn btn-secondary">Connexion</button>
         </div>
     </form>    
-</div>
+</main>
 
 <?php
 require_once __DIR__ . '/inc/footer.php';
