@@ -33,7 +33,7 @@ $title = 'Connexion';
                 <a class="item-link" href="./add-student.php">Ajouter un étudiant  <img class="icon-menu" src="./assets/svg/plus.svg" alt="icon accueil"></a>
               </li>
               <li class="nav-item">
-                <a class="item-link" href="./index.php">Se déconnecter  <img class="icon-menu" src="./assets/svg/disconnect.svg" alt="icon accueil"></a>
+                <a class="item-link" href="./controllers/disconect-controller.php">Se déconnecter  <img class="icon-menu" src="./assets/svg/disconnect.svg" alt="icon accueil"></a>
               </li>
             </ul>
         </div>
