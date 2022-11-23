@@ -1,3 +1,10 @@
+<?php session_start(); 
+
+// Si l'utilisateur n'est pas connecter on le renvoi sur la page de connexion avec un message d'erreur
+if($_SESSION['user_logged_in'] == NULL){
+    header('Location: ./index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

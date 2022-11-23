@@ -8,10 +8,10 @@ require_once __DIR__ . '/inc/header.php';
 
     <p class="section-title text-center">Création d'un compte :</p>
 
-    <form method="POST" action="./controllers/add-user-controller.php">
+    <form method="GET" action="./controllers/add-user-controller.php">
         <div class="form-group">
-            <label for="id">Identidiant :</label>
-            <input required type="text" class="form-control" id="id" name="id" placeholder="ex : Alexandre">
+            <label for="login">Identidiant :</label>
+            <input required type="text" class="form-control" id="login" name="login" placeholder="ex : Alexandre">
         </div>
         <div class="form-group">
             <label for="password">Mot de passe :</label>

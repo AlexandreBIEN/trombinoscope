@@ -109,3 +109,60 @@ function get_classes() {
     $classes = $classesStmt->fetchAll(PDO::FETCH_ASSOC);
     return $classes;
 }
+
+/***************************************************************************
+Enregistrement d'un utilisateur : requête paramétrée
+utilisation de la méthode prépare avec des paramètres nommés.
+************************************************************************** */
+function register_user($user_login, $user_password){
+    $db = db_connect();
+
+    $sql = <<<EOD
+    INSERT 
+    INTO 
+        `users` (`login`, `password`) 
+    VALUES 
+        (:user_login, :user_password)
+    EOD;
+    $userInfoStmt = $db->prepare($sql);
+    $userInfoStmt->bindValue(':user_login', $user_login);
+    $userInfoStmt->bindValue(':user_password', $user_password);
+
+    $userInfoStmt->execute();
+
+    return true;
+}
+
+/***************************************************************************
+Vérifie si l'utilisateur existe dans la bdd -> si oui on le connecte : requête paramétrée
+utilisation de la méthode prépare avec des paramètres nommés.
+************************************************************************** */
+function user_connexion($user_login, $user_password){
+    $db = db_connect();
+
+    $sql = <<<EOD
+    SELECT 
+        `login`, 
+        `password` 
+    FROM 
+        `users` 
+    WHERE 
+        `login` = :user_login
+    AND 
+        `password` = :user_password
+    EOD;
+    $userInfoStmt = $db->prepare($sql);
+    $userInfoStmt->bindValue(':user_login', $user_login);
+    $userInfoStmt->bindValue(':user_password', $user_password);
+
+    $userInfoStmt->execute();
+
+    $userDetails = $userInfoStmt->fetchAll(PDO::FETCH_ASSOC);
+
+    if($userDetails != NULL) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
