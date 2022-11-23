@@ -41,7 +41,7 @@ else {
         <!-- Liste des étudiants -->
         <?php foreach ($students as $student) : ?>
             <div class="col">
-                <div class="card text-center">
+                <div class="card text-center mb-4">
                     <img src="./assets/img/<?= $student['img_name']?>.png" alt="" class="img-student">
                     <p><?= $student['first_name'] ?></p>
                     <p><?= $student['last_name'] ?></p>

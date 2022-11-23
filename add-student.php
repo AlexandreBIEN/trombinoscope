@@ -27,7 +27,7 @@ $classes = get_classes();
 
         <div class="form-group">
             <label for="image_student">Photo de l'étudiant :</label>
-            <input required type="file" class="form-control-file" id="image_student" name="image_student">
+            <input required type="file" accept=".jpg, .jpeg, .png" class="form-control-file" id="image_student" name="image_student">
         </div>
         <div class="text-center py-2">
             <button type="submit" class="btn btn-secondary">Envoyer</button>
